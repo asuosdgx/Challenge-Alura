@@ -1,16 +1,25 @@
+function resetarAmigos() {
+  amigos = [];
+  document.getElementById('listaAmigos').innerHTML = '';
+  document.getElementById('resultado').innerHTML = '';
+  document.getElementById('amigo').value = '';
+}
 
 let amigos = [];
+
 
 function adicionarAmigo() {
   let input = document.getElementById('amigo');
   let nome = input.value.trim();
-  }
   if (nome && !amigos.includes(nome)) {
     amigos.push(nome);
-    document.getElementById('listaAmigos').innerHTML = amigos.map(a => `<li>${a}</li>`).join('');
+    let lista = document.getElementById('listaAmigos');
+    lista.innerHTML = '';
+    lista.innerHTML = amigos.map(a => `<li>${a}</li>`).join('');
     input.value = '';
     input.focus();
   }
+}
 
 
 function sortearAmigo() {
